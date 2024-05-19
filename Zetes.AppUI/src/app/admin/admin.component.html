@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card border-dark mb-3" style="width: 75vw; height: 75vh;">
+        <div class="card-header">Administration</div>
+        <div class="card-body w-100 h-100">
+          <ul class="nav nav-tabs w-100" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Customers</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="project-tab" data-bs-toggle="tab" data-bs-target="#project-tab-pane" type="button" role="tab" aria-controls="project-tab-pane" aria-selected="false">Projects</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="user-tab" data-bs-toggle="tab" data-bs-target="#user-tab-pane" type="button" role="tab" aria-controls="user-tab-pane" aria-selected="false">Users</button>
+            </li>            
+          </ul>
+          <div class="tab-content w-100" id="myTabContent">
+            <div class="tab-pane fade show active p-2" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+              <app-customers ></app-customers>
+            </div>
+            <div class="tab-pane fade p-2" id="project-tab-pane" role="tabpanel" aria-labelledby="project-tab" tabindex="0">
+              <app-projects></app-projects>
+            </div>
+            <div class="tab-pane fade p-2" id="user-tab-pane" role="tabpanel" aria-labelledby="user-tab" tabindex="0">
+              <app-users></app-users>
+            </div>            
+          </div>       
+        </div>
+      </div>      
+    </div>
+</div>
+
+
+

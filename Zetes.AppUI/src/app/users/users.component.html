@@ -1,0 +1,20 @@
+<table  datatable [dtOptions]="dtOptions" class="table row-border table-hover" style="width: 100%;">
+    <thead>
+        <tr class="">
+            <th>Email</th>
+            <th>Username</th>            
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(user of users; track user){
+            <tr>
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

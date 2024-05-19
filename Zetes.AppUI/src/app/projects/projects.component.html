@@ -1,0 +1,53 @@
+<table  datatable [dtOptions]="dtOptions" class="table row-border table-hover" style="width: 100%;">
+    <thead>
+        <tr class="">
+            <th>Name</th>
+            <th>Customer</th>
+            <th>Description</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>
+                <button class="btn btn-sm btn-primary" (click)="showDetail(viewUserTemplate)">
+                    <i class="bi bi-plus-circle"></i> Add New
+                </button>                
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(project of projects; track project){
+            <tr (click)="onSelect(project)">
+                <td>{{project.name}}</td>
+                <td>
+                    @if(project.customer)
+                    {
+                        {{project.customer.firstName}} {{project.customer.lastName}}
+                    }
+                </td>
+                <td>{{project.description}}</td>
+                <td>{{project.startDate}}</td>
+                <td>{{project.endDate}}</td>
+                <td>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table> 
+
+<ng-template #viewUserTemplate>
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 *ngIf="selectedProject" class="modal-title fs-5" id="frmDetailLabel">
+                @if(selectedProject && selectedProject.projectId == 0){
+                    Add New Project
+                }
+                @else{                    
+                    {{ selectedProject.name }} 
+                }
+              </h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <app-project-detail [project]="selectedProject" [customers]="customers"  (cancel)="detailOnCancel()" (save)="detailOnSave($event)"></app-project-detail>
+            </div>
+          </div>
+</ng-template>

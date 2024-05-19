@@ -1,0 +1,46 @@
+<table datatable [dtOptions]="dtOptions" class="table row-border table-hover">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>            
+            <th>Phone</th>
+            <th>Email</th>
+            <th>
+                <button class="btn btn-sm btn-primary" (click)="showDetail(viewUserTemplate)">
+                    <i class="bi bi-plus-circle"></i> Add New
+                </button>                
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(customer of customers; track customer){
+            <tr (click)="onSelect(customer)">
+                <td>{{customer.firstName}}</td>
+                <td>{{customer.lastName}}</td>                
+                <td>{{customer.phone}}</td>
+                <td>{{customer.email}}</td>
+                <td>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<ng-template #viewUserTemplate>
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 *ngIf="selectedCustomer"  class="modal-title fs-5" id="frmDetailLabel">
+                @if(selectedCustomer.customerId == 0){
+                    Add New Customer
+                }
+                @else{
+                    {{ selectedCustomer.firstName }} {{selectedCustomer.lastName}}
+                }
+              </h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <app-customer-detail [customer]="selectedCustomer" (cancel)="detailOnCancel()" (save)="detailOnSave($event)"></app-customer-detail>
+            </div>
+          </div>
+</ng-template>

@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card border-dark mb-3" style="width: 350px;">
+            <div class="card-header">Create a new local account</div>
+            <div class="card-body w-100 h-100">
+                <form id="registerForm" name="registerForm">
+                    <div class="text-danger" role="alert"></div>
+                    <div class="form-floating mb-3">
+                        <input [(ngModel)]="account.email"  name="txtEmail" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                        <label>Email</label>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input [(ngModel)]="account.password" name="txtPass"  class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" type="password" />
+                        <label>Password</label>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input [(ngModel)]="account.confirmPassword"  name="txtConPass" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" type="password" />
+                        <label>Confirm Password</label>
+                        <span class="text-danger"></span>
+                    </div>
+                    <button id="registerSubmit" (click)="onRegister(account)" type="button" class="w-100 btn btn-lg btn-primary">Register</button>
+                    <p>
+                        <a routerLink="/login" class="btn btn-link">Login to account</a>
+                    </p>            
+                </form>
+            </div>
+          </div>              
+    </div>
+</div>
+
